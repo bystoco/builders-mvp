@@ -17,7 +17,7 @@ spring:
 server:
   port: ${PORT}
   servlet:
-    context-path: /buildersmvp/api/v1
+    context-path: /api/v1
 
 springdoc:
   api-docs:
