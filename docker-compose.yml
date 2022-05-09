@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  builders-mvp:
+    build:
+      "./"
+    container_name: builders-mvp
+    volumes:
+      - ./data:/data
+    restart: always
+    ports:
+      - "9001:9001"
