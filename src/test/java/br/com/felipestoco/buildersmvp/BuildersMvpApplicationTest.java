@@ -1,4 +1,4 @@
-package br.com.felipestoco.buildersmvp.api;
+package br.com.felipestoco.buildersmvp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

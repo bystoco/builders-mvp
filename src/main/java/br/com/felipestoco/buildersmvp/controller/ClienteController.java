@@ -24,14 +24,10 @@ import java.util.Optional;
 @RequestMapping("/clientes")
 public class ClienteController {
 
-    private final ClienteService clienteService;
-    private final ClienteRepository clienteRepository;
-
     @Autowired
-    public ClienteController(ClienteService clienteService, ClienteRepository clienteRepository) {
-        this.clienteService = clienteService;
-        this.clienteRepository = clienteRepository;
-    }
+    private ClienteService clienteService;
+    @Autowired
+    private ClienteRepository clienteRepository;
 
     @GetMapping
     public Page<ClienteDTO> lista(@PageableDefault(sort = "nome", direction = Sort.Direction.ASC) Pageable paginacao) {

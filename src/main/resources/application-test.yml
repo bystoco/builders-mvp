@@ -1,17 +1,14 @@
 spring:
   main:
     banner-mode: off
-  application:
-    name: Builders MVP
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:men:builders-mvp-test
-    username: sa
-    password:
+  jpa:
+    hibernate:
+      ddl-auto: create
   sql:
     init:
-      mode: never
-  jpa:
-      hibernate:
-        ddl-auto: update
-      database-platform: org.hibernate.dialect.H2Dialect
+      mode: always
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:builders-mvp-test
+    username: sa
+    password:

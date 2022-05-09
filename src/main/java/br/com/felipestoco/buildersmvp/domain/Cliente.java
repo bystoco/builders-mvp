@@ -1,5 +1,7 @@
 package br.com.felipestoco.buildersmvp.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
@@ -22,29 +24,37 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     @Getter
+    @Setter
     private Long id;
 
     @NotBlank
     @Size(max = 255, min = 1)
-    @Getter @Setter
+    @Getter
+    @Setter
     private String nome;
 
     @NotBlank
     @Size(max = 255, min = 1)
-    @Getter @Setter
+    @Getter
+    @Setter
     private String sobrenome;
 
-    @NotNull @Past
+    @NotNull
+    @Past
     @Convert(converter = Jsr310JpaConverters.LocalDateConverter.class)
-    @Getter @Setter
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @Getter
+    @Setter
     private LocalDate dataNascimento;
 
     @NotNull
     @Email
-    @Getter @Setter
+    @Getter
+    @Setter
     private String email;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private String celular;
 
     @Getter
